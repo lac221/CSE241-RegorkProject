@@ -1,0 +1,53 @@
+I DO NOT HAVE A MAKE FILE
+
+
+Edits to my design:
+Realized that in my ER i was keeping track of offering price incorrectly.
+In my ER every supplier that makes the same product must offer it for the same price
+I changed this so that offering price is now an attribute of the can_make relation. 
+
+DATA: i generated some of my data by hand and used mockaroo to randomly generate the rest
+
+MANAGER:
+	In the manager interface you can add a supplier as a vendor. It will not let you add a supplier Id that already exists
+	If i had more time i was going to analyze amounts paid per shipment or supplier to keep track of who we do business with the most
+
+
+RECALL:
+	Currently my recall interface only will recall the specific ID that you supply and items of the same batch. 
+	If I had more time I would have added that 
+		it would also recall all the components of the product
+		and any products that it is a component of.
+	I also would have added something so that if you didnt know the specific ID of your product you could enter
+	the name of the product and when you bought it and i would recall all inventory on hand at the time. 
+
+	A good input to try for this interface is product_Id 43729 as it will change the recall status of 3 products
+
+SUPPLIER:
+	You must know your supplier id to use the supplier interface.
+	Valid supplier Ids are: 99053, 34801, 403, 54841, 94634, 1
+	With 1 being the id for the REGORK store
+
+	Adding a product to the products you offer should never result in an error. I was unsure what to do in the case
+	where you try to add a product that you already make- so i just alerted them that they already make it and return
+	to the menu. 
+	You can add yourself as a known supplier for the products that exist or make a brand new product
+	If i had more time i would have created a method that capitilized the user input so that queries would be more accurate
+	Because i didnt, when you enter a product name you need to enter it exactly as it is stated in the database	
+
+	You can search for products by name or by ID to add them to your order
+
+		ID's numbers 1, 2, 15 will all provide good output, but there are other product numbers that will as well
+	
+		Names- For placing an order I would reccomend using the search terms Wine and Cookie
+		Listed above. If i had more time i would have added a method that took the input and capitilized the
+		first letter of every word. For an accurate query you will need to type it as it appears in the list above.
+		but you can enter a substring
+			
+
+ALL:
+	All interfaces that insert into a relation that requires a date the date is hard coded
+	I spent a really long time on how to generate a date and get it in the right format
+	at this point i decided to cut my losses and hard code the dates. 
+	For making specific instances of products this date is april 3rd 2019
+	for shipping products this date is april 7th. (after the manufacture date so it remains consistent)
